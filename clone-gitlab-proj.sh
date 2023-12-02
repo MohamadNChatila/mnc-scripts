@@ -19,8 +19,8 @@ for page in {1..4}; do
 done
 
 # Getting all the available branches and skipping RM branches
-# Access all directories in the current path
-directories=($(find . -maxdepth 1 -type d))
+# Access all directories in the current path - ignoring "." directory
+directories=($(find . -maxdepth 1 -type d -not -name '.' -exec basename {} \;))
 
 # Iterate through directories
 for dir in "${directories[@]}"; do
